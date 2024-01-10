@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ORG_NAME="$1"
+REPO_NAME="$2"
+USERNAME="$3"
+TOKEN="$4"
+
+response=$(curl -s "${USERNAME}:${TOKEN}""https://api.github.com/repos/$ORG_NAME/$REPO_NAME/contributors")
+
+if [ $? -ne 0 ]; then
+echo "Error: Unable to fetch repository contributors."
+exit 1
+fi
+
+usernames=$(echo "$response")
