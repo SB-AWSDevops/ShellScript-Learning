@@ -12,6 +12,10 @@ sub(){
 	echo "Result: $(($1-$2))"
 }
 
+mul(){
+	echo "Result : $(($1*$2))"
+}
+
 # Main script starts here
 
 echo "Calculator Menu:"
@@ -32,6 +36,9 @@ case $choice in
 	         read -p "Enter 2nd num: " num2
 		 		 sub $num1 $num2
 				 ;;
+	3) read -p "Enter the 1st num :" num1
+		read -p "Enter 2nd num :" num2
+		mul $num1 $num2
 	*) echo "Invalid choiuce"
 		;;
 esac
